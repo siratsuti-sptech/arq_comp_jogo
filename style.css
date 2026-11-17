@@ -1,0 +1,62 @@
+:root{--papel:#f6ecd3;--tinta:#1c1530;--verm:#c8321f;--ouro:#b88a2e;--indigo:#2a1f5c;--ok:#bfe3b4;--erro:#f4b8ac}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Zen Kaku Gothic New",sans-serif;background:#2a1f5c;color:var(--tinta)}
+.cena{position:relative;overflow:hidden;text-align:center;color:#fff;padding:1.5rem 1rem 1rem;
+ background:linear-gradient(#2a1f5c,#8a2f5a 45%,#e0562f 75%,#f4a261)}
+.sol{position:absolute;left:50%;bottom:-40px;width:260px;height:260px;margin-left:-130px;border-radius:50%;
+ background:radial-gradient(#e63a22 55%,#f26b3a);box-shadow:0 0 80px 30px rgba(255,120,60,.5);
+ transform:translateY(calc(130px - var(--sol,0)*150px));transition:transform 1s}
+.silhueta{position:absolute;left:0;bottom:0;width:100%;height:90px}
+h1,h2,h3{font-family:"Shippori Mincho B1",serif}
+h1{position:relative;margin:0 0 1rem;font-size:clamp(1.6rem,5vw,3rem);text-shadow:2px 2px 0 #1c1530}
+h1 small{display:block;font-size:.9rem;letter-spacing:.2em;opacity:.9}
+nav{position:relative;display:flex;justify-content:center;gap:.6rem;flex-wrap:wrap}
+button{font:700 1rem "Zen Kaku Gothic New",sans-serif;cursor:pointer;border:2px solid var(--ouro);background:var(--verm);color:#fff;
+ padding:.6rem 1.2rem;transform:skewX(-8deg);box-shadow:3px 3px 0 var(--tinta)}
+button.sec,nav button:not(.ativo){background:var(--papel);color:var(--tinta)}
+button:hover{filter:brightness(1.08)}
+.progresso{position:relative;margin:.8rem 0 2.2rem;font-size:.9rem}
+main{max-width:1100px;margin:0 auto;padding:1rem}
+.tela{display:none;background:var(--papel);border:3px double var(--ouro);padding:1rem;border-radius:4px}
+.tela.ativa{display:block}
+.dica,.msg{margin:.3rem 0}
+.msg{min-height:1.5rem;font-weight:700;color:var(--verm)}
+.bandeja{display:flex;flex-wrap:wrap;gap:.5rem;min-height:3rem;padding:.6rem;background:rgba(0,0,0,.07);margin-bottom:1rem}
+.peca{transform:none;background:#fff;color:var(--tinta);border:2px solid var(--tinta);padding:.4rem .7rem;font-size:.9rem}
+.peca.sel{background:var(--ouro);color:#fff}
+.mapa{display:grid;gap:.8rem}
+.cpu{border:3px solid var(--verm);padding:.6rem;background:rgba(200,50,31,.08)}
+.cpu h3{margin:0 0 .4rem}
+.linha{display:flex;flex-wrap:wrap;gap:.6rem}
+.slot{flex:1 1 150px;min-height:70px;padding:.5rem;border:2px dashed var(--indigo);background:#fffaf0;font-size:.85rem;cursor:pointer;display:flex;flex-direction:column;justify-content:center}
+.slot b{font-size:1.1rem;color:var(--verm)}
+.slot.ok{border-style:solid;border-color:#2e7d32;background:var(--ok)}
+.slot.over{background:#ffe9b0}
+.tremer{animation:tremer .3s}
+@keyframes tremer{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.barra{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;margin-bottom:1rem}
+.cruz{display:grid;grid-template-columns:auto 1fr;gap:1rem}
+.rolagem{overflow-x:auto;max-width:100%}
+#grade{display:grid;gap:1px;width:max-content;background:var(--tinta);padding:1px}
+.c{position:relative;width:32px;height:32px}
+.c.v{background:transparent}
+.c:not(.v){background:#fff}
+.c input{width:100%;height:100%;border:0;text-align:center;font:700 1.1rem "Zen Kaku Gothic New";text-transform:uppercase;background:transparent;padding:0;caret-color:var(--verm)}
+.c input:focus{outline:2px solid var(--verm);background:#fff3cf}
+.c.ok{background:var(--ok)}.c.bad{background:var(--erro)}
+.c i{position:absolute;top:0;left:2px;font:700 .55rem sans-serif;font-style:normal;pointer-events:none}
+.pistas h3{margin:.2rem 0;border-bottom:2px solid var(--verm)}
+.pistas ol{margin:0 0 1rem;padding-left:0;list-style:none;font-size:.9rem}
+.pistas li{padding:.25rem;cursor:pointer}
+.pistas li:hover{background:#ffe9b0}
+.pistas li.ok{background:var(--ok)}.pistas li.bad{background:var(--erro)}
+.cartas h2{color:#fff}
+#cartas{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:.7rem}
+.mini{background:var(--papel);border:2px solid var(--ouro);padding:.6rem;font-size:.85rem}
+.mini b{font-family:"Shippori Mincho B1",serif;font-size:1.3rem;color:var(--verm)}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:grid;place-items:center;z-index:9;padding:1rem}
+.modal[hidden]{display:none}
+.card{background:var(--papel);border:4px double var(--ouro);padding:1.4rem;max-width:420px;text-align:center}
+.card h2{margin:0;font-size:2.4rem;color:var(--verm)}
+footer{text-align:center;color:#fff;padding:1.5rem;font-size:.8rem}
+@media(max-width:760px){.cruz{grid-template-columns:1fr}.c{width:28px;height:28px}}
