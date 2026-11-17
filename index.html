@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ゲームのことば · Palavras do Jogo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="cena">
+  <div class="sol" id="sol"></div>
+  <svg class="silhueta" viewBox="0 0 800 120" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 120V80l90-45 70 40 80-55 90 60 60-30 100 50 90-40 90 35 120-30v95z" fill="#1f1640"/>
+    <path d="M580 80h60l-8-14h-44zM592 66l8-12 8 12zM586 56h28l-4-8h-20z" fill="#120d2b"/>
+  </svg>
+  <h1><small>ゲームのことば</small>Palavras do Jogo</h1>
+  <nav>
+    <button data-tela="montagem" class="ativo">Montar o Computador</button>
+    <button data-tela="cruzada">Cruzadinha</button>
+  </nav>
+  <p class="progresso" id="progresso"></p>
+</header>
+
+<main>
+  <section id="montagem" class="tela ativa">
+    <p class="dica">Escolha uma peça (clique ou arraste) e coloque no encaixe que combina com a descrição.</p>
+    <div class="bandeja" id="bandeja"></div>
+    <div class="mapa">
+      <div class="cpu"><h3>CPU</h3><div id="slotsCpu" class="linha"></div></div>
+      <div class="linha" id="slotsMem"></div>
+      <div class="linha" id="slotsBus"></div>
+    </div>
+    <p id="msg" class="msg"></p>
+  </section>
+
+  <section id="cruzada" class="tela">
+    <div class="barra">
+      <button id="conferir">Conferir</button>
+      <button id="reiniciar" class="sec">Reiniciar</button>
+      <strong id="contador">0 de 16 palavras</strong>
+    </div>
+    <div class="cruz">
+      <div class="rolagem"><div id="grade"></div></div>
+      <aside class="pistas">
+        <h3>Horizontais</h3><ol id="pH"></ol>
+        <h3>Verticais</h3><ol id="pV"></ol>
+      </aside>
+    </div>
+  </section>
+
+  <section class="cartas"><h2>Cartas descobertas</h2><div id="cartas"></div></section>
+</main>
+
+<div id="modal" class="modal" hidden><div class="card" id="card"></div></div>
+<footer>Projeto estático · HTML, CSS e JavaScript puros</footer>
+<script src="script.js"></script>
+</body>
+</html>
